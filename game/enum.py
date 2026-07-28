@@ -6,3 +6,9 @@ class Direction(Enum):
     DOWN = (0, 1)
     LEFT = (-1, 0)
     RIGHT = (1, 0)
+
+class CollisionType(Enum):
+    NONE = 0
+    FOOD = 1
+    WALL = 2
+    SNAKE = 3

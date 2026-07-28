@@ -8,16 +8,15 @@ from game.renderer import Renderer
 def game_loop():
     pg.init()
 
-    delta_time_limit = 100
+    DELTA_TIME_LIMIT = 100
+    SNAKE_SIZE = 15
+    GRID_PER_SCREEN = 40
 
-    snake_size = 15
-    grid_per_screen = 40
+    screen = pg.display.set_mode([SNAKE_SIZE * GRID_PER_SCREEN, SNAKE_SIZE * GRID_PER_SCREEN])
 
-    screen = pg.display.set_mode([snake_size * grid_per_screen, snake_size * grid_per_screen])
-
-    game = Game(grid_per_screen)
+    game = Game(GRID_PER_SCREEN)
     input_manager = InputManager(game)
-    renderer = Renderer(screen, snake_size)
+    renderer = Renderer(screen, SNAKE_SIZE)
 
     clock = pg.time.Clock()
     running = True
@@ -32,10 +31,10 @@ def game_loop():
 
         input_manager.check_for_input(events)
 
-        if pg.time.get_ticks() - last_frame > delta_time_limit:
+        if pg.time.get_ticks() - last_frame > DELTA_TIME_LIMIT:
             last_frame = pg.time.get_ticks()
 
-            game.move()
+            game.step()
 
             renderer.update_game_state(game.get_state())
 
