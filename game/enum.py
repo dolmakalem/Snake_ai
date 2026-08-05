@@ -12,3 +12,4 @@ class CollisionType(Enum):
     FOOD = 1
     WALL = 2
     SNAKE = 3
+    SPECIAL_FOOD = 4
