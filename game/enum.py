@@ -13,3 +13,10 @@ class CollisionType(Enum):
     WALL = 2
     SNAKE = 3
     SPECIAL_FOOD = 4
+
+class Action(Enum):
+    MOVE_ONLY = 0
+    ATE_FOOD = 1
+    ATE_SPECIAL_FOOD = 2
+    HIT_WALL = 3
+    HIT_SNAKE = 4

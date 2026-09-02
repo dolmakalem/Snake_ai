@@ -39,7 +39,12 @@ def game_loop():
 
             game.step()
 
-            renderer.update_game_state(game.get_state())
+            game_state = game.get_state()
+
+            if game_state.is_gameover:
+                game.reset()
+
+            renderer.update_game_state(game_state)
 
         renderer.render(delta_time)
         pg.display.update()
