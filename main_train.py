@@ -44,7 +44,7 @@ class TrainConfig:
         self.criterion = nn.SmoothL1Loss()
 
         self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-            self.optimizer, mode='max', factor=0.5, patience=1000000, verbose=True
+            self.optimizer, mode='max', factor=0.5, patience=1000000
         )
 
 class Trainer:
